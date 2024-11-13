@@ -3,8 +3,8 @@ from scraping_functions import scraper
 from styler import color_background
 
 """
-keyword search: 'steam wand'
-longer query: 'espresso machine steam wand with automatic temperature sensing and adjustable temperature and froth levels'
+keyword search: steam wand
+longer query: espresso machine steam wand with automatic temperature sensing and adjustable temperature and froth levels
 """
 app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
@@ -26,7 +26,7 @@ def index():
         # Convert the styled DataFrame to HTML
         df_html = styled_df.to_html(escape=False, index=False)
 
-    return render_template_string(HTML_TEMPLATE, query=query, holistic_query=holistic_query,
+    return render_template_string(HTML_TEMPLATE, index=False, query=query, holistic_query=holistic_query,
                                   tables=[df_html] if df_html else None)
 
 HTML_TEMPLATE = """
